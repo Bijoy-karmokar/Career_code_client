@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBoxFill } from "react-icons/bs";
 import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
@@ -35,7 +36,7 @@ const Navbar = () => {
             }
           </ul>
         </div>
-        <p className="text-3xl font-bold">Job Box</p>
+        <p className="flex items-center justify-center gap-2 text-2xl lg:text-4xl font-bold"><BsBoxFill style={{color:'blue'}}></BsBoxFill> Job Box</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
