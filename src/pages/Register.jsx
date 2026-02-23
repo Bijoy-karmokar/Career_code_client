@@ -3,9 +3,11 @@ import React from "react";
 import RegisterData from "../assets/Lottie/RegisterLottie.json";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const { createUser } = useAuth();
+  const navigate = useNavigate();
   // console.log(createUser);
 
   const handleRegister = (e) => {
@@ -27,6 +29,7 @@ const Register = () => {
             timer: 1500,
           });
         }
+        navigate('/');
       })
       .catch((error) => {
         if(error){
