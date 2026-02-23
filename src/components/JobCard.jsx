@@ -1,7 +1,9 @@
 import React from "react";
 import { IoLocation } from "react-icons/io5";
+import { useNavigate } from "react-router";
 
 const JobCard = ({ job }) => {
+    const navigate = useNavigate();
   const {
     _id,
     title,
@@ -12,6 +14,8 @@ const JobCard = ({ job }) => {
     requirements,
     company_logo,
   } = job;
+//   console.log(_id);
+  
   return (
     <div className="card bg-base-100 shadow-sm">
      <div className="flex items-center gap-1 p-6">
@@ -44,7 +48,7 @@ const JobCard = ({ job }) => {
            requirements.map(req=><div className="badge badge-outline">{req}</div>)
          }
         </div>
-        <button onClick={`/jobDetails/${_id}`} className="btn btn-primary text-lg">Show Details</button>
+        <button onClick={()=>navigate(`/jobDetails/${_id}`)} className="btn btn-primary text-lg">Show Details</button>
       </div>
     </div>
   );
