@@ -1,8 +1,36 @@
 import React from "react";
 import { BsBoxFill } from "react-icons/bs";
 import { Link, NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const {user,logOut} = useAuth();
+  // console.log(user);
+  const handleLogOut =()=>{
+       logOut()
+       .then(()=>{
+         Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your logOut has been successfully.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+       })
+       .catch(error=>{
+        if(error){
+          Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Something went wrong!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        }
+       })
+  }
+  
     const links=<>
         <li><NavLink className={({isActive})=>isActive? 'text-lg text-blue-600' :"text-lg"} to={'/'}>Home</NavLink></li>
     </>
@@ -46,8 +74,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
+       {
+        user ? <button onClick={handleLogOut} className="btn btn-primary btn-outline">LogOut</button> : <>
         <Link to='/login' className="btn btn-primary btn-outline">LogIn</Link>
         <Link to='/register' className="btn btn-primary btn-outline">Register</Link>
+        </>
+       }
       </div>
     </div>
   );
