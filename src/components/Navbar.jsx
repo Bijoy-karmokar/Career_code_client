@@ -33,6 +33,11 @@ const Navbar = () => {
   
     const links=<>
         <li><NavLink className={({isActive})=>isActive? 'text-lg text-blue-600' :"text-lg"} to={'/'}>Home</NavLink></li>
+        {
+          user && <>
+            <li><NavLink className={({isActive})=>isActive? 'text-lg text-blue-600' :"text-lg"} to={'/myApplication'}>My Application</NavLink></li>
+          </>
+        }
     </>
   return (
     <div className="navbar bg-base-100 shadow-sm">
