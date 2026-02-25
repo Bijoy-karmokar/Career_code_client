@@ -1,6 +1,7 @@
 import React from "react";
 
 const JobApplicationRow = ({application,index}) => {
+  const {company,title,company_logo,applicant} = application;
   return (
     <tr>
       <th>
@@ -11,19 +12,19 @@ const JobApplicationRow = ({application,index}) => {
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
-                src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                src={company_logo}
                 alt="Avatar Tailwind CSS Component"
               />
             </div>
           </div>
           <div>
-            <div className="font-bold">{application.applicant}</div>
-            <div className="text-sm opacity-50">United States</div>
+            <div className="font-bold">{company}</div>
+            <div className="text-sm opacity-50">{title}</div>
           </div>
         </div>
       </td>
       <td>
-        Zemlak, Daniel and Leannon
+        {applicant}
         <br />
         <span className="badge badge-ghost badge-sm">
           Desktop Support Technician
