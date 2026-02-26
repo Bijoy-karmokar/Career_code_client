@@ -1,4 +1,5 @@
 import React, { use } from "react";
+import { Link } from "react-router";
 
 const PostedLists = ({ jobAddressEmail }) => {
   const jobs = use(jobAddressEmail);
@@ -13,20 +14,20 @@ const PostedLists = ({ jobAddressEmail }) => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Job Title</th>
+              <th>Job category</th>
+              <th>View Applicants</th>
             </tr>
           </thead>
           <tbody>
             {/* row  */}
             {jobs.map((job,index) => 
                 
-              <tr key={job._id}>
+              <tr key={index}>
                 <th>{index + 1}</th>
                 <td>{job.title}</td>
                 <td>{job.category}</td>
-                <td>Blue</td>
+                <td><Link to={`/applications/${job._id}`}>View Applicants</Link></td>
               </tr>
             )}
           </tbody>

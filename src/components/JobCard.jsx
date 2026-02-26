@@ -45,7 +45,7 @@ const JobCard = ({ job }) => {
         </p>
         <div className="card-actions">
          {
-           requirements.map(req=><div className="badge badge-outline">{req}</div>)
+           requirements.map((req,index)=><div key={index} className="badge badge-outline">{req}</div>)
          }
         </div>
         <button onClick={()=>navigate(`/jobDetails/${_id}`)} className="btn btn-primary text-lg">Show Details</button>
